@@ -90,6 +90,7 @@ def takeCommand():
         print(f"User said: {query}\n")
     except Exception as e:
         #print(e)
+        
         print("Say that again please ....")
         return "None"
     return query
@@ -117,7 +118,7 @@ if __name__ == "__main__":
              speak("running")
              hourly_forecast_data = get_hourly_forecast()
              speak(hourly_forecast_data)
-        elif "sing" in query:
+        elif "sing" or "song" in query:
             lyrics = """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                 Baby Shark, doo-doo, doo-doo, doo-doo
                 Baby Shark, doo-doo, doo-doo, doo-doo
@@ -177,7 +178,7 @@ if __name__ == "__main__":
                 engine.setProperty('voice', voices[selected_voice].id)
 
                 speak(chunk)
-            
+            query = "" 
         else:
             speak("GO hackathon")
 
