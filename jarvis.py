@@ -12,10 +12,6 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 import json
 
-# Sample JSON data
-
-
-       
 
 API_key = "2b2322dc9cdba6c9e743017b96e7859e"  # Replace with your actual OpenWeatherMap API key
 lat = "40.735619"  # Replace with the latitude of the location you're interested in
@@ -119,7 +115,7 @@ if __name__ == "__main__":
              hourly_forecast_data = get_hourly_forecast()
              speak(hourly_forecast_data)
         elif "sing" or "song" in query:
-            lyrics = """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            lyrics = """aaaaaaa
                 Baby Shark, doo-doo, doo-doo, doo-doo
                 Baby Shark, doo-doo, doo-doo, doo-doo
                 Baby Shark, doo-doo, doo-doo, doo-doo
