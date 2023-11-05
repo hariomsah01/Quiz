@@ -1,0 +1,51 @@
+# Node modules and dependencies
+node_modules/
+
+# Dependency directory
+# The yarn.lock file is used by Yarn, a package manager alternative to npm.
+# If you're using npm, you can exclude yarn.lock.
+yarn.lock
+
+# Optional npm debugging logs
+npm-debug.log
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for the locally installed packages
+.npm
+
+# Optional editor/IDE files
+.idea
+.vscode
+
+# Mac specific
+.DS_Store
+
+# Visual Studio Code workspace settings
+.code-workspace
+
+# Windows-specific files
+Thumbs.db
+
+# Environment variables file
+.env
+
+my_env
+
+# If you use TypeScript, you might want to exclude the compiled JavaScript files.
+# Uncomment the following line if you're using TypeScript and have a "dist" folder.
+# dist/
+
+# Uncomment the following line if you use Babel for transpilation and have an "out" folder.
+# out/
+
+# Uncomment the following line if you use Parcel for bundling and have a "dist" folder.
+# dist/

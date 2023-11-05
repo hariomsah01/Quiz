@@ -1,0 +1,153 @@
+* {
+  font-size: 1em;
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  margin: 0;
+  padding: 0;
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Element {
+
+
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DataBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+
+}
+
+.DataImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 20em;
+  width: inherit;
+}
+
+.OceanImg {
+  width: inherit;
+  height: 50vh;
+  background-size: cover;
+}
+
+.UserImg {
+  position: relative;
+  width: 7em;
+  height: 7em;
+  bottom: 6em;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 1px 4px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.ShowMoreButton {
+  margin-top: 2em;
+  padding: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.UserName {
+
+  position: relative;
+  color: rgb(128, 128, 128);
+  bottom: 5em;
+  font-weight: bold;
+  font-size: 18px;
+  /* background-color: rgb(120, 60, 60); */
+
+
+}
+
+.Element {
+  display: block;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 2em;
+
+
+}
+
+.ShowMore {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.listEntries {
+  margin-top: 1em;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.3em;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.register {
+  display: flex;
+  flex-direction: column;
+}
