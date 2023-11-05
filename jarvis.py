@@ -4,11 +4,64 @@ import datetime
 import wikipedia
 import webbrowser
 import os
+import random
 import requests
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 #print(voices[0].id)
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
+import json
+
+# Sample JSON data
+
+
+       
+
+API_key = "2b2322dc9cdba6c9e743017b96e7859e"  # Replace with your actual OpenWeatherMap API key
+lat = "40.735619"  # Replace with the latitude of the location you're interested in
+lon = "-74.175834"  # Replace with the longitude of the location you're interested in
+def check_api_key(API_key):
+    api_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}"
+
+    print(api_url)
+
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        return True  # API key is valid
+    else:
+        return False  # API key is invalid or unauthorized
+
+# Check the API key
+if check_api_key(API_key):
+    print("API key is valid.")
+else:
+    print("API key is invalid or unauthorized.")
+
+
+def get_hourly_forecast():
+    api_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}"
+
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        json_data = response.json()
+        
+        # You can directly work with the JSON data in the 'json_data' variable.
+
+        # Iterate through the keys and values and format them as strings
+        formatted_strings = []
+        for key, value in json_data.items():
+            formatted_string = f"The {key} is {value}"
+            formatted_strings.append(formatted_string)
+
+        # Join the formatted strings into a single string
+        result_string = "\n".join(formatted_strings)
+
+        return result_string
+    except requests.exceptions.RequestException as e:
+        print("Error fetching weather forecast data:", e)
+        return None
 
 def speak(audio):
     engine.say(audio)
@@ -41,7 +94,7 @@ def takeCommand():
         return "None"
     return query
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
     wishMe()
     while True: 
         query = takeCommand().lower()
@@ -60,51 +113,72 @@ def takeCommand():
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir, the time is {strTime}")
+        elif "weather" in query:
+             speak("running")
+             hourly_forecast_data = get_hourly_forecast()
+             speak(hourly_forecast_data)
+        elif "sing" in query:
+            lyrics = """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                Baby Shark, doo-doo, doo-doo, doo-doo
+                Baby Shark, doo-doo, doo-doo, doo-doo
+                Baby Shark, doo-doo, doo-doo, doo-doo
+                Baby Shark
+
+                Mommy Shark, doo-doo, doo-doo, doo-doo
+                Mommy Shark, doo-doo, doo-doo, doo-doo
+                Mommy Shark, doo-doo, doo-doo, doo-doo
+                Mommy Shark
+
+                Daddy Shark, doo-doo, doo-doo, doo-doo
+                Daddy Shark, doo-doo, doo-doo, doo-doo
+                Daddy Shark, doo-doo, doo-doo, doo-doo
+                Daddy Shark
+
+                Grandma Shark, doo-doo, doo-doo, doo-doo
+                Grandma Shark, doo-doo, doo-doo, doo-doo
+                Grandma Shark, doo-doo, doo-doo, doo-doo
+                Grandma Shark
+
+                Grandpa Shark, doo-doo, doo-doo, doo-doo
+                Grandpa Shark, doo-doo, doo-doo, doo-doo
+                Grandpa Shark, doo-doo, doo-doo, doo-doo
+                Grandpa Shark
+
+                Let's go hunt, doo-doo, doo-doo, doo-doo
+                Let's go hunt, doo-doo, doo-doo, doo-doo
+                Let's go hunt, doo-doo, doo-doo, doo-doo
+                Let's go hunt
+
+                Run away, doo-doo, doo-doo, doo-doo
+                Run away, doo-doo, doo-doo, doo-doo
+                Run away, doo-doo, doo-doo, doo-doo
+                Run away (ah!)
+
+                Safe at last, doo-doo, doo-doo, doo-doo
+                Safe at last, doo-doo, doo-doo, doo-doo
+                Safe at last, doo-doo, doo-doo, doo-doo
+                Safe at last (phew)
+
+                It's the end, doo-doo, doo-doo, doo-doo
+                It's the end, doo-doo, doo-doo, doo-doo
+                It's the end, doo-doo, doo-doo, doo-doo
+                It's the end
+                """
+
+            lyric_chunks = lyrics.splitlines()
+
+# Call the speak function for each chunk
+            for chunk in lyric_chunks:
+
+# Assuming you have a list of voices (voices) that you want to select from
+                selected_voice = random.choice([0,1])
+
+# Set the voice property to the selected voice's ID
+                engine.setProperty('voice', voices[selected_voice].id)
+
+                speak(chunk)
             
+        else:
+            speak("GO hackathon")
 
-API_key = "2b2322dc9cdba6c9e743017b96e7859e"  # Replace with your actual OpenWeatherMap API key
-lat = "40.735619"  # Replace with the latitude of the location you're interested in
-lon = "-74.175834"  # Replace with the longitude of the location you're interested in
-def check_api_key(API_key):
-    api_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}"
-
-    print(api_url)
-
-    response = requests.get(api_url)
-
-    if response.status_code == 200:
-        return True  # API key is valid
-    else:
-        return False  # API key is invalid or unauthorized
-
-# Check the API key
-if check_api_key(API_key):
-    print("API key is valid.")
-else:
-    print("API key is invalid or unauthorized.")
-
-
-def get_hourly_forecast():
-    api_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}"
-
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        data = response.json()
-
-        # You can now work with the data as needed to extract weather information
-        # Example: data['list'] contains hourly forecast data
-
-        return data
-    except requests.exceptions.RequestException as e:
-        print("Error fetching weather forecast data:", e)
-        return None
-
-# You can call this function to get the hourly weather forecast data
-hourly_forecast_data = get_hourly_forecast()
-# print(hourly_forecast_data)
-if hourly_forecast_data:
-    # Process and use the weather forecast data
-    # You will need to parse and extract the specific weather information you require
-    print(hourly_forecast_data["main"]["temp"])
-    # You can also speak the weather data using your `speak` function
+     
