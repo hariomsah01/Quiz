@@ -6,5 +6,3 @@ We are giving credits to Baby Shark Lyrics:
 Weather API from : "https://openweathermap.org/current"
 
 Jarvis library from "speech_recognition"
-
-Just having fun and making AI sing Shark Song
